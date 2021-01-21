@@ -9,3 +9,5 @@ app.use(bodyParser.json());
 app.listen(port, () => {
   console.log(`BACKEND is running on ${port}`);
 });
+
+module.exports = app;
