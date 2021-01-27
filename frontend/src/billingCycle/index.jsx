@@ -6,6 +6,8 @@ import Tabs from '../common/template/tabs/index'
 import TabsContent from '../common/template/tabs/tabsContent'
 import TabsHeader from '../common/template/tabs/tabsHeader'
 
+import TabHeader from '../common/template/tabs/Header'
+
 export default class BillingCycle extends Component {
 
   render() {
@@ -14,7 +16,10 @@ export default class BillingCycle extends Component {
       <Content>
         <Tabs>
           <TabsHeader>
-            
+            <TabHeader icon="bars" label="Listar" target="tabList"/>
+            <TabHeader icon="plus" label="Incluir" target="tabCreate"/>
+            <TabHeader icon="pencil" label="Alterar" target="tabUpdate"/>
+            <TabHeader icon="trash-o" label="Excluir" target="tabDelete"/>
           </TabsHeader>
           <TabsContent>
               
