@@ -14,7 +14,6 @@ const sendErrorsFromDB = (res, dbErros) => {
 };
 
 const login = (req, res, next) => {
-  console.log(req.body);
   const email = req.body.email || '';
   const password = req.body.password || '';
   User.findOne({ email }, (err, user) => {
