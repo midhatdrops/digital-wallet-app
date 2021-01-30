@@ -1,11 +1,23 @@
 const express = require('express');
-module.exports = function (app) {
-  //Definir URL base para todas as rotas
-  const router = express.Router();
-  app.use('/api', router);
+const auth = require('./auth');
 
-  //Mapeamento de Rotas
+module.exports = function (app) {
+  /* Rotas protegidas por JWT */
+  const protectedAPI = express.Router();
+  app.use('/api', protectedAPI);
+
+  protectedAPI.use(auth);
 
   const BillingCycle = require('../api/billingCycle/billingCycleService');
-  BillingCycle.register(router, '/billingCycles');
+  BillingCycle.register(protectedAPI, '/billingCycles');
+
+  /* Rotas abertas */
+
+  const openAPI = express.Router();
+  app.use('/oapi', openAPI);
+
+  const AuthService = require('../api/user/authService');
+  openAPI.post('/login', AuthService.login);
+  openAPI.post('/signup', AuthService.signup);
+  openAPI.post('/validateToken', AuthService.validateToken);
 };
