@@ -9,10 +9,9 @@ import BillingCycle from '../billingCycle/index';
 
 export default (props) => (
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
+    <Route path="/" component={AuthOrApp}>
       <IndexRoute component={DashBoard} />
       <Route path="billingCycles" component={BillingCycle} />
-      <Route path="/" component={AuthOrApp}></Route>
     </Route>
     <Redirect from="*" to="/" />
   </Router>
