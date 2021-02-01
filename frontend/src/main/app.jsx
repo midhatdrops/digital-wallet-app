@@ -11,7 +11,9 @@ export default (props) => {
     <div className="wrapper">
       <Header />
       <Sidebar />
-      <div className="content-wrapper">{props.children}</div>
+      <div className="content-wrapper" style={{ height: '100vh' }}>
+        {props.children}
+      </div>
       <Footer />
       <Messages />
     </div>
